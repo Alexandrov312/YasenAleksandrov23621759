@@ -1,0 +1,3 @@
+Name: Poncho
+Floors: 10
+Stars: 5

@@ -1,0 +1,21 @@
+First name: Ivan
+Last name: Ivanov
+Birth date: 2000/10/27
+Personal number: 0052662242
+Country: Bulgaria
+hotel Room number: 301
+-----------------------------
+First name: Petar
+Last name: Petrov
+Birth date: 1990/10/26
+Personal number: 9068232242
+Country: Bulgaria
+hotel Room number: 302
+-----------------------------
+First name: Jana
+Last name: Kostadinova
+Birth date: 1999/1/3
+Personal number: 9962859442
+Country: Bulgaria
+hotel Room number: 302
+-----------------------------

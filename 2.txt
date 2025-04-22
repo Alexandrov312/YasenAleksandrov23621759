@@ -1,0 +1,144 @@
+Room number: 301
+Floor: 3
+Number of beds: 1
+Is available: false
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 302
+Floor: 3
+Number of beds: 2
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 303
+Floor: 3
+Number of beds: 3
+Is available: false
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 304
+Floor: 3
+Number of beds: 4
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 401
+Floor: 4
+Number of beds: 1
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 402
+Floor: 4
+Number of beds: 2
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 403
+Floor: 4
+Number of beds: 3
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 404
+Floor: 4
+Number of beds: 4
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 501
+Floor: 5
+Number of beds: 1
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 502
+Floor: 5
+Number of beds: 2
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 503
+Floor: 5
+Number of beds: 3
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 504
+Floor: 5
+Number of beds: 4
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 601
+Floor: 6
+Number of beds: 1
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 602
+Floor: 6
+Number of beds: 2
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 603
+Floor: 6
+Number of beds: 3
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 604
+Floor: 6
+Number of beds: 4
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 701
+Floor: 7
+Number of beds: 1
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 702
+Floor: 7
+Number of beds: 2
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 703
+Floor: 7
+Number of beds: 3
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 704
+Floor: 7
+Number of beds: 4
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 801
+Floor: 8
+Number of beds: 1
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 802
+Floor: 8
+Number of beds: 2
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
+Room number: 803
+Floor: 8
+Number of beds: 3
+Is available: true
+Hotel View: SIDE_SEA_VIEW
+-----------------------------
+Room number: 804
+Floor: 8
+Number of beds: 4
+Is available: true
+Hotel View: DIRECT_SEA_VIEW
+-----------------------------
