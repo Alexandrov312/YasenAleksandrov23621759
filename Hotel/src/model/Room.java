@@ -1,7 +1,7 @@
-package hotel;
+package model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Comparator;
+import java.util.TreeSet;
 
 public class Room {
 
@@ -10,7 +10,7 @@ public class Room {
     private int numberOfBeds;
     private boolean isAvailable;
     private View view;
-    private Set<Guest> guests;
+    private TreeSet<Guest> guests;
 
     public Room(int floor, int numberOfBeds, View view, int roomNumber) {
         this.roomNumber = roomNumber;
@@ -18,7 +18,8 @@ public class Room {
         this.numberOfBeds = numberOfBeds;
         this.isAvailable = true;
         this.view = view;
-        guests = new HashSet<>();
+        guests = new TreeSet<>(Comparator.comparingInt(Guest::getRoomNumber)
+                .thenComparing(Guest::getPersonalNumber));
     }
 
     public boolean isAvailable() {
@@ -44,11 +45,12 @@ public class Room {
     public View getView() {
         return view;
     }
+
     public int getNumberOfGuests() {
         return guests.size();
     }
 
-    public Set<Guest> getGuests() {
+    public TreeSet<Guest> getGuests() {
         return guests;
     }
 
@@ -76,6 +78,7 @@ public class Room {
 
         return builder.toString();
     }
+
     public String getInfoWithoutGuests(){
         StringBuilder builder = new StringBuilder();
         builder.append("Room number: "+roomNumber+"\n");

@@ -1,8 +1,8 @@
 package fileManage;
 
-import hotel.*;
+import input.ValidateInput;
+import model.*;
 import exceptions.*;
-import app.UserInput;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,7 +40,7 @@ public class FileRead {
 
             Room room = new Room(floor, numberOfBeds, view, roomNumber);
             room.setAvailable(isAvailable);
-            Hotel.getInstance().getRooms().add(room);
+            Hotel.getInstance().getRoomService().getRooms().add(room);
         }
         input.close();
     }
@@ -59,13 +59,13 @@ public class FileRead {
 
             input.findInLine("Birth date: ");
             String date = input.nextLine();
-            Date birthDate = Date.isValidDate(date);
+            Date birthDate = ValidateInput.isValidDate(date);
             if (birthDate == null)
                 throw new ErrorByReading("Invalid birthdate");
 
             input.findInLine("Personal number: ");
             String personalNumber = input.nextLine();
-            if (personalNumber.length() != 10 || !UserInput.isNumeric(personalNumber))
+            if (personalNumber.length() != 10 || !ValidateInput.isNumeric(personalNumber))
                 throw new ErrorByReading("Invalid personal number");
 
             input.findInLine("Country: ");
@@ -77,7 +77,7 @@ public class FileRead {
             input.nextLine();
 
             Room room = null;
-            for (Room tempRoom : Hotel.getInstance().getRooms()) {
+            for (Room tempRoom : Hotel.getInstance().getRoomService().getRooms()) {
                 if (tempRoom.getRoomNumber() == roomNumber) {
                     room = tempRoom;
                     break;
@@ -89,7 +89,7 @@ public class FileRead {
             else{
                 room.addGuest(guest);
             }
-            Hotel.getInstance().getGuests().add(guest);
+            Hotel.getInstance().getGuestService().getGuests().add(guest);
         }
         input.close();
     }
@@ -128,7 +128,7 @@ public class FileRead {
             input.findInLine("Room number: ");
             int roomNumber = input.nextInt();
             Room roomResult = null;
-            for(Room room : Hotel.getInstance().getRooms()){
+            for(Room room : Hotel.getInstance().getRoomService().getRooms()){
                 if(room.getRoomNumber() == roomNumber){
                     roomResult = room;
                     break;
@@ -140,13 +140,13 @@ public class FileRead {
 
             input.findInLine("Start date: ");
             String date = input.nextLine();
-            Date startDate = Date.isValidDate(date);
+            Date startDate = ValidateInput.isValidDate(date);
             if (startDate == null)
                 throw new ErrorByReading("Invalid birthdate");
 
             input.findInLine("End date: ");
             date = input.nextLine();
-            Date endDate = Date.isValidDate(date);
+            Date endDate = ValidateInput.isValidDate(date);
             if (endDate == null)
                 throw new ErrorByReading("Invalid birthdate");
 
@@ -155,9 +155,95 @@ public class FileRead {
 
             input.nextLine();
 
-            Hotel.getInstance().getReservations().add(new Reservation(roomResult, startDate, endDate, note));
-            if (Date.today().isBetween(startDate, endDate))
-                roomResult.setAvailable(false);
+            if (Date.today().isBetween(startDate, endDate)) {
+                if(roomResult.getNumberOfGuests() != 0) roomResult.setAvailable(false);
+                Hotel.getInstance().getReservationService().getReservations().add(new Reservation(roomResult, startDate, endDate, note));
+            }
+            else{
+                Hotel.getInstance().getGuestService().checkOut(roomResult);
+            }
         }
+        input.close();
+    }
+
+    public static void readActivities(String path) throws FileNotFoundException {
+        File file = new File(path);
+
+        Scanner input = new Scanner(file);
+
+        while (input.hasNextLine()) {
+            int id;
+            String description, time;
+            Date date;
+
+            input.findInLine("Id: ");
+            id = input.nextInt();
+            input.nextLine();
+
+            input.findInLine("Description: ");
+            description = input.nextLine();
+
+            input.findInLine("Date: ");
+            String dateString = input.nextLine();
+            date = ValidateInput.isValidDate(dateString);
+            if (date == null)
+                throw new ErrorByReading("Invalid date");
+
+            input.findInLine("Starts at: ");
+            time = input.nextLine();
+            time = ValidateInput.isValidTime(time);
+            if(time.isEmpty())
+                throw  new ErrorByReading("Invalid time!");
+
+            input.nextLine();
+            Activity activity = new Activity(id, description, date, time);
+            do{
+                if(input.findInLine("----------------------------------------------------------") != null){
+                    break;
+                }
+                input.findInLine("First name: ");
+                String firstName = input.nextLine();
+
+                input.findInLine("Last name: ");
+                String lastName = input.nextLine();
+
+                input.findInLine("Birth date: ");
+                dateString = input.nextLine();
+                Date birthDate = ValidateInput.isValidDate(dateString);
+                if (birthDate == null)
+                    throw new ErrorByReading("Invalid birthdate");
+
+                input.findInLine("Personal number: ");
+                String personalNumber = input.nextLine();
+                if (personalNumber.length() != 10 || !ValidateInput.isNumeric(personalNumber))
+                    throw new ErrorByReading("Invalid personal number");
+
+                input.findInLine("Country: ");
+                String country = input.nextLine();
+
+                input.findInLine("Room number: ");
+                int roomNumber = input.nextInt();
+                input.nextLine();
+                input.nextLine();
+
+                Room room = null;
+                for (Room tempRoom : Hotel.getInstance().getRoomService().getRooms()) {
+                    if (tempRoom.getRoomNumber() == roomNumber) {
+                        room = tempRoom;
+                        break;
+                    }
+                }
+                Guest guest = new Guest(firstName, lastName, birthDate, personalNumber, country, roomNumber);
+                if (room == null)
+                    throw new ErrorByReading("Invalid room number");
+                else{
+                    activity.getGuests().add(guest);
+                }
+            }while(true);
+            input.nextLine();
+            if(!activity.getDate().isBefore(Date.today()))
+                Hotel.getInstance().getActivityService().getActivities().add(activity);
+        }
+        input.close();
     }
 }

@@ -1,4 +1,4 @@
-package hotel;
+package model;
 
 public enum View {
     DIRECT_SEA_VIEW("direct sea view"),

@@ -1,7 +1,7 @@
 Room number: 301
 Floor: 3
 Number of beds: 1
-Is available: false
+Is available: true
 Hotel View: SIDE_SEA_VIEW
 -----------------------------
 Room number: 302
@@ -13,7 +13,7 @@ Hotel View: DIRECT_SEA_VIEW
 Room number: 303
 Floor: 3
 Number of beds: 3
-Is available: false
+Is available: true
 Hotel View: SIDE_SEA_VIEW
 -----------------------------
 Room number: 304
@@ -43,13 +43,13 @@ Hotel View: SIDE_SEA_VIEW
 Room number: 404
 Floor: 4
 Number of beds: 4
-Is available: true
+Is available: false
 Hotel View: DIRECT_SEA_VIEW
 -----------------------------
 Room number: 501
 Floor: 5
 Number of beds: 1
-Is available: true
+Is available: false
 Hotel View: SIDE_SEA_VIEW
 -----------------------------
 Room number: 502
@@ -67,7 +67,7 @@ Hotel View: SIDE_SEA_VIEW
 Room number: 504
 Floor: 5
 Number of beds: 4
-Is available: true
+Is available: false
 Hotel View: DIRECT_SEA_VIEW
 -----------------------------
 Room number: 601
@@ -85,7 +85,7 @@ Hotel View: DIRECT_SEA_VIEW
 Room number: 603
 Floor: 6
 Number of beds: 3
-Is available: true
+Is available: false
 Hotel View: SIDE_SEA_VIEW
 -----------------------------
 Room number: 604

@@ -1,6 +1,6 @@
 package fileManage;
 
-import hotel.Hotel;
+import model.Hotel;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,17 +11,21 @@ public class FileManager {
     private static String roomsFilePath;
     private static String guestsFilePath;
     private static String reservationsFilePath;
+    private static String activitiesFilePath;
 
-    public static void open(String hotelFile, String roomsFile, String guestsFile, String reservationsFile) throws FileNotFoundException {
+    public static void open(String hotelFile, String roomsFile, String guestsFile,
+                            String reservationsFile, String activitiesFile) throws FileNotFoundException {
         hotelFilePath = hotelFile;
         roomsFilePath = roomsFile;
         guestsFilePath = guestsFile;
         reservationsFilePath = reservationsFile;
+        activitiesFilePath = activitiesFile;
 
         FileRead.readHotel(hotelFile);
         FileRead.readRooms(roomsFile);
         FileRead.readGuests(guestsFile);
-        FileRead.readReservations(reservationsFilePath);
+        FileRead.readReservations(reservationsFile);
+        FileRead.readActivities(activitiesFile);
 
         isOpened = true;
         System.out.println("The data was successfully loaded!");
@@ -35,19 +39,23 @@ public class FileManager {
         FileWrite.writeRooms(roomsFilePath);
         FileWrite.writeGuests(guestsFilePath);
         FileWrite.writeReservations(reservationsFilePath);
+        FileWrite.writeActivities(activitiesFilePath);
         System.out.println("Changes saved!");
     }
 
-    public static void saveAs(String newHotelFile, String newRoomsFile, String newGuestsFile, String newReservationsFile) throws IOException {
+    public static void saveAs(String newHotelFile, String newRoomsFile, String newGuestsFile,
+                              String newReservationsFile, String newActivitiesFile) throws IOException {
         hotelFilePath = newHotelFile;
         roomsFilePath = newRoomsFile;
         guestsFilePath = newGuestsFile;
         reservationsFilePath = newReservationsFile;
+        activitiesFilePath = newActivitiesFile;
 
         FileWrite.writeHotel(hotelFilePath);
         FileWrite.writeRooms(roomsFilePath);
         FileWrite.writeGuests(guestsFilePath);
         FileWrite.writeReservations(reservationsFilePath);
+        FileWrite.writeActivities(activitiesFilePath);
 
         System.out.println("Changes saved!");
     }

@@ -1,4 +1,4 @@
-package hotel;
+package model;
 
 import java.util.Objects;
 
@@ -67,5 +67,9 @@ public class Guest {
         builder.append("Room number: "+roomNumber+"\n");
 
         return  builder.toString();
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 }

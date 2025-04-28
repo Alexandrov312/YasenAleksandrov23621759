@@ -1,7 +1,9 @@
-package hotel;
-import app.*;
+package model;
+
+import input.InputHelper;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Date {
     private int year;
@@ -12,6 +14,19 @@ public class Date {
         this.year = year;
         this.month = month;
         this.day = day;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Date date = (Date) o;
+        return year == date.year && month == date.month && day == date.day;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(year, month, day);
     }
 
     public int getYear() {
@@ -73,7 +88,7 @@ public class Date {
         return year % 4 == 0;
     }
 
-    private static int daysInMonth(int month, int year) {
+    public static int daysInMonth(int month, int year) {
         switch (month) {
             case 4: case 6: case 9: case 11: return 30;
             case 2: return isLeapYear(year) ? 29 : 28;
@@ -81,53 +96,9 @@ public class Date {
         }
     }
 
-    public static boolean isValidBirthDate(int year, int month, int day){
-        if(year < 1908 || year > Date.today().getYear())
-            return false;
-        else if(month < 0 || month > 12)
-            return false;
-        else if(day < 0 || day > daysInMonth(month, year))
-            return false;
-
-        return true;
-    }
-
-    public static Date isValidDate(String date){
-        int year = 0, month = 0, day = 0;
-        for (int i = 0; i < 3; i++) {
-            String temp = "";
-            for (int j = 0; j < date.length(); j++) {
-                if (date.charAt(j) == '/')
-                    break;
-                temp += date.charAt(j);
-            }
-            if(!UserInput.isNumeric(temp)) {
-                System.out.println("Invalid date!");
-                return null;
-            }
-
-            if (i == 0) {
-                year = Integer.parseInt(temp);
-                temp += "/";
-                date = date.replace(temp, "");
-            } else if (i == 1) {
-                month = Integer.parseInt(temp);
-                temp += "/";
-                date = date.replace(temp, "");
-            } else {
-                day = Integer.parseInt(temp);
-            }
-        }
-        if(isValidBirthDate(year, month, day))
-            return new Date(year, month, day);
-        else
-            return null;
-    }
-
     public String getDateAsString() {
         String monthString = (month < 10 ? "0" : "") + month;
         String dayString = (day < 10 ? "0" : "") + day;
         return year + "/" + monthString + "/" + dayString;
     }
-
 }

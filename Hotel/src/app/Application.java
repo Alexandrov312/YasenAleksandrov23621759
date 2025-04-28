@@ -11,6 +11,7 @@ public class Application {
         FileRead.readRooms("2.txt");
         FileRead.readGuests("3.txt");
         FileRead.readReservations("4.txt");
+        FileRead.readActivities("5.txt");
         MenuClass.MainMenu();
 
     }

@@ -1,18 +1,18 @@
-hotel Room number: 302
+model Room number: 302
 Floor: 3
 Number of beds: 2
 Is available: false
-hotel View: SIDE_SEA_VIEW
+model View: SIDE_SEA_VIEW
 -----------------------------
-hotel Room number: 301
+model Room number: 301
 Floor: 3
 Number of beds: 1
 Is available: false
-hotel View: SIDE_SEA_VIEW
+model View: SIDE_SEA_VIEW
 -----------------------------
-hotel Room number: 303
+model Room number: 303
 Floor: 3
 Number of beds: 2
 Is available: false
-hotel View: SIDE_SEA_VIEW
+model View: SIDE_SEA_VIEW
 -----------------------------
