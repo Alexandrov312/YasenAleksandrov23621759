@@ -46,7 +46,9 @@ public class GuestService implements GuestServiceInterface {
         Hotel.getInstance().getReservationService().getReservations().remove(reservation);
         room.setAvailable(true);
         guests.removeAll(room.getGuests());
+        Hotel.getInstance().getActivityService().getActivities().removeAll(room.getGuests());
         room.getGuests().clear();
+        System.out.println("The guests from room "+room.getRoomNumber()+" have been checked out successfully!");
     }
 
     public void displayAllGuests(){

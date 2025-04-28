@@ -65,7 +65,7 @@ public class InputHelper {
 
     public static boolean confirm(String prompt){
         do{
-            System.out.print(prompt + "(Y/N):");
+            System.out.print(prompt + "(Y/N): ");
             temp = input.nextLine();
             if(!temp.isEmpty() && Character.toLowerCase(temp.charAt(0)) == 'y'){
                 return true;

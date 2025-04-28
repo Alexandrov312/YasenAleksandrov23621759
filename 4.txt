@@ -8,13 +8,18 @@ Start date: 2025/04/26
 End date: 2025/04/29
 Note: Kirilovi
 -----------------------------
+Room number: 504
+Start date: 2025/04/28
+End date: 2025/05/12
+Note: Ilievi
+-----------------------------
 Room number: 603
 Start date: 2025/04/28
 End date: 2025/05/28
 Note: Ilievi
 -----------------------------
-Room number: 504
+Room number: 704
 Start date: 2025/04/28
-End date: 2025/05/12
-Note: Ilievi
+End date: 2025/05/30
+Note: Cvetanovi
 -----------------------------

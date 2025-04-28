@@ -115,7 +115,7 @@ Hotel View: SIDE_SEA_VIEW
 Room number: 704
 Floor: 7
 Number of beds: 4
-Is available: true
+Is available: false
 Hotel View: DIRECT_SEA_VIEW
 -----------------------------
 Room number: 801

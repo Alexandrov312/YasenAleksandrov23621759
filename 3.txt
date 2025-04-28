@@ -19,6 +19,13 @@ Personal number: 6895654432
 Country: Bulgaria
 Room number: 501
 -----------------------------
+First name: Kostantin
+Last name: Atanasov
+Birth date: 2000/04/02
+Personal number: 0095644235
+Country: Bulgaria
+Room number: 504
+-----------------------------
 First name: Atanas
 Last name: Atanasov
 Birth date: 1979/07/25
@@ -30,13 +37,6 @@ First name: Qna
 Last name: Atanasova
 Birth date: 1981/03/01
 Personal number: 8164693953
-Country: Bulgaria
-Room number: 504
------------------------------
-First name: Kostantin
-Last name: Atanasov
-Birth date: 2000/04/02
-Personal number: 0095644235
 Country: Bulgaria
 Room number: 504
 -----------------------------
@@ -60,4 +60,18 @@ Birth date: 1999/06/19
 Personal number: 9964363209
 Country: Bulgaria
 Room number: 603
+-----------------------------
+First name: Cvetan
+Last name: Cvetanov
+Birth date: 1990/04/04
+Personal number: 9064642436
+Country: Bulgaria
+Room number: 704
+-----------------------------
+First name: Todor
+Last name: Cvetanov
+Birth date: 1996/11/19
+Personal number: 9657547609
+Country: Bulgaria
+Room number: 704
 -----------------------------

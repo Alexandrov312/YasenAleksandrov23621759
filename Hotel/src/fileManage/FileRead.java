@@ -237,6 +237,8 @@ public class FileRead {
                 if (room == null)
                     throw new ErrorByReading("Invalid room number");
                 else{
+                    if(!Hotel.getInstance().getGuestService().getGuests().contains(guest))
+                        continue;
                     activity.getGuests().add(guest);
                 }
             }while(true);

@@ -3,6 +3,13 @@ Description: Tenis table
 Date: 2025/05/02
 Starts at: 15:00
 -----------------------------
+First name: Martin
+Last name: Monev
+Birth date: 1990/05/02
+Personal number: 9064574372
+Country: Bulgaria
+Room number: 301
+-----------------------------
 ----------------------------------------------------------
 Id: 2
 Description: Zumba
@@ -83,5 +90,19 @@ Birth date: 1999/06/19
 Personal number: 9964363209
 Country: Bulgaria
 Room number: 603
+-----------------------------
+First name: Cvetan
+Last name: Cvetanov
+Birth date: 1990/04/04
+Personal number: 9064642436
+Country: Bulgaria
+Room number: 704
+-----------------------------
+First name: Todor
+Last name: Cvetanov
+Birth date: 1996/11/19
+Personal number: 9657547609
+Country: Bulgaria
+Room number: 704
 -----------------------------
 ----------------------------------------------------------
