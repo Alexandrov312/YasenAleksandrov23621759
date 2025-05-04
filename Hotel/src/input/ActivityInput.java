@@ -4,8 +4,15 @@ import model.Activity;
 import model.Date;
 import model.Hotel;
 
+/**
+ * Клас {@code ActivityInput} предоставя методи за работа с дейности(активитети) в хотела -
+ * добавяне на дейност, търсене по номер на стая и търсене по идентификатор.
+ */
 public class ActivityInput {
 
+    /**
+     * Добавя нова дейност в системата, като валидира въведените данни.
+     */
     public static void addActivity(){
         int id;
         String description;
@@ -37,6 +44,9 @@ public class ActivityInput {
 
     }
 
+    /**
+     * Извежда всички дейности, в които участват гости от конкретна стая.
+     */
     public static void activityByRoomNumberInput(){
         if(Hotel.getInstance().getActivityService().getActivities().isEmpty()){
             System.out.println("There are no activities!");
@@ -53,6 +63,9 @@ public class ActivityInput {
         }
     }
 
+    /**
+     * Извежда информация за конкретна дейност по въведен идентификатор.
+     */
     public static void activityByIdInput(){
         if(Hotel.getInstance().getActivityService().getActivities().isEmpty()){
             System.out.println("There are no activities!");

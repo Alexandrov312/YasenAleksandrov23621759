@@ -8,6 +8,10 @@ import model.Room;
 import java.util.Comparator;
 import java.util.TreeSet;
 
+/**
+ * Клас {@code ReservationService} за управление на резервации в хотела.
+ * Отговаря за съхранение, проверка и добавяне на резервации.
+ */
 public class ReservationService implements ReservationServiceInterface {
     private TreeSet<Reservation> reservations;
 
@@ -25,6 +29,13 @@ public class ReservationService implements ReservationServiceInterface {
         return reservations;
     }
 
+    /**
+     * Проверява дали дадена стая е резервирана в указания период.
+     * @param room Стая.
+     * @param startDate Начална дата.
+     * @param endDate Крайна дата.
+     * @return true ако е резервирана, false в противен случай.
+     */
     @Override
     public boolean isReserved(Room room, Date startDate, Date endDate){
         for(Reservation reservation : reservations){
@@ -35,13 +46,27 @@ public class ReservationService implements ReservationServiceInterface {
         return false;
     }
 
+    /**
+     * Проверява дали дадената резервация е валидна за зададения период.
+     * @param reservation Резервация.
+     * @param startDate Начална дата.
+     * @param endDate Крайна дата.
+     * @return true ако има припокриване, false в противен случай.
+     */
     @Override
     public boolean isAvailable(Reservation reservation, Date startDate, Date endDate){
         Date resStart = reservation.getStartDate();
         Date resEnd = reservation.getEndDate();
-        return (!endDate.isBefore(resStart) && !startDate.isAfter(resEnd));
+        return (Date.isPeriodOverlapping(startDate, endDate, resStart, resEnd));
     }
 
+    /**
+     * Добавя нова резервация и променя валидността на стаята, ако е необходима.
+     * @param room Стая.
+     * @param startDate Начална дата.
+     * @param endDate Крайна дата.
+     * @param note Бележка към резервацията.
+     */
     @Override
     public void unavailable(Room room, Date startDate, Date endDate, String note){
         Reservation reservation = new Reservation(room, startDate, endDate, note);
@@ -51,6 +76,9 @@ public class ReservationService implements ReservationServiceInterface {
         }
     }
 
+    /**
+     * Извежда информация за всички резервации на екрана.
+     */
     public void displayAllReservations(){
         for(Reservation reservation : reservations){
             System.out.println(reservation.getInfo());

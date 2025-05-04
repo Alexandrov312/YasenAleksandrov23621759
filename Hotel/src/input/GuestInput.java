@@ -4,8 +4,18 @@ import model.*;
 
 import java.util.TreeSet;
 
+/**
+ * Клас {@code GuestInput} съдържа методи за добавяне на гости, въвеждане на техните данни
+ * и записване на гости в дейности.
+ */
 public class GuestInput {
 
+    /**
+     * Създава нов гост въз основа на данни, въведени от потребителя.
+     *
+     * @param roomNumber номер на стаята, към която се добавя гостът.
+     * @return {@link Guest} нов обект от тип Guest.
+     */
     public static Guest enterGuest(int roomNumber){
         String firstName;
         String lastName;
@@ -29,6 +39,9 @@ public class GuestInput {
         return new Guest(firstName, lastName, birthDate, personalNumber, country, roomNumber);
     }
 
+    /**
+     * Добавя гост към стая, ако има направена резервация.
+     */
     public static void addGuest(){
         Room roomResult;
         do {
@@ -56,6 +69,11 @@ public class GuestInput {
         }
     }
 
+    /**
+     * Добавя гост към избрана дейност въз основа на ЕГН.
+     *
+     * @param guests списък с гости, които могат да бъдат добавени към дейността.
+     */
     public static void addGuestToActivity(TreeSet<Guest> guests){
         Guest guest = null;
         Activity activity = null;
@@ -106,7 +124,7 @@ public class GuestInput {
             if(activity != null) {
                 if(reservation != null && activity.getDate().isAfter(reservation.getEndDate())){
                     System.out.println("The guest won't be in the hotel anymore for the activity!");
-                    System.out.println("The guest is in the hotel until "+reservation.getEndDate());
+                    System.out.println("The guest is in the hotel until "+reservation.getEndDate().getDateAsString());
                     return;
                 }
                 break;
@@ -125,6 +143,11 @@ public class GuestInput {
             System.out.println("Error to add guest to activity!");
     }
 
+    /**
+     * Позволява добавянето на множество гости към дейности при настаняване.
+     *
+     * @param guests списък с гости, които ще се записват в дейности.
+     */
     public static void addGuestToActivityByCheckIn(TreeSet<Guest> guests){
         if(Hotel.getInstance().getActivityService().getActivities().isEmpty()){
             System.out.println("There are no activities!");

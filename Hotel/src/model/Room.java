@@ -3,6 +3,9 @@ package model;
 import java.util.Comparator;
 import java.util.TreeSet;
 
+/**
+ * Класът {@code Room} представлява хотелска стая.
+ */
 public class Room {
 
     private int roomNumber;
@@ -54,6 +57,9 @@ public class Room {
         return guests;
     }
 
+    /**
+     * Добавя гост в стаята, ако има свободни легла.
+     */
     public void addGuest(Guest guest){
         if(numberOfBeds >= guests.size() + 1){
             guests.add(guest);
@@ -63,6 +69,9 @@ public class Room {
         }
     }
 
+    /**
+     * Връща информация за стаята и списък с гостите.
+     */
     public String getInfoWithGuests(){
         StringBuilder builder = new StringBuilder();
         builder.append("Room number: "+roomNumber+"\n");
@@ -79,6 +88,9 @@ public class Room {
         return builder.toString();
     }
 
+    /**
+     * Връща информация за стаята без списъка с гости.
+     */
     public String getInfoWithoutGuests(){
         StringBuilder builder = new StringBuilder();
         builder.append("Room number: "+roomNumber+"\n");

@@ -4,24 +4,61 @@ import model.Date;
 import model.Hotel;
 import model.Room;
 
+/**
+ * Класът {@code ValidateInput} предоставя помощни методи за валидиране на входните данни, въведени от потребителя.
+ */
+
 public class ValidateInput {
 
+    /**
+     * Проверява дали етажът е валиден спрямо броя етажи в хотела.
+     *
+     * @param floor номер на етажа
+     * @return true ако е валиден, иначе false.
+     */
     public static boolean validFloor(int floor){
         return floor > 1 && floor <= Hotel.getInstance().getFloors();
     }
 
+    /**
+     * Проверява дали броят легла в стаята е валиден (между 1 и 4 включително).
+     *
+     * @param numberOfBeds брой легла
+     * @return true ако е валидно, иначе false.
+     */
     public static boolean validNumberOfBeds(int numberOfBeds){
         return (numberOfBeds >= 1 && numberOfBeds <= 4);
     }
 
+    /**
+     * Проверява дали стаята е пълна.
+     *
+     * @param room обект от тип Room
+     * @return true ако броят гости е равен на броя легла.
+     */
     public static boolean isRoomFull(Room room){
         return room.getNumberOfBeds() == room.getNumberOfGuests();
     }
 
+    /**
+     * Проверява дали броят гости е валиден спрямо броя легла.
+     *
+     * @param numberOfGuests брой гости
+     * @param numberOfBeds брой легла
+     * @return true ако броят гости е валиден, иначе false.
+     */
     public static boolean validNumberOfGuests(int numberOfGuests, int numberOfBeds){
         return numberOfGuests <= numberOfBeds && numberOfGuests >= 1;
     }
 
+    /**
+     * Проверява дали дадена дата е валидна.
+     *
+     * @param year година
+     * @param month месец
+     * @param day ден
+     * @return true ако датата е валидна.
+     */
     public static boolean dateCheck(int year, int month, int day){
         if(year < 1908 || year > Date.today().getYear())
             return false;
@@ -33,6 +70,12 @@ public class ValidateInput {
         return true;
     }
 
+    /**
+     * Проверява дали датата, въведена от потребителя, е валидна.
+     *
+     * @param date низ във формат "yyyy/mm/dd"
+     * @return {@link Date}, ако е валидна датата, иначе null.
+     */
     public static Date isValidDate(String date){
         int year = 0, month = 0, day = 0;
 
@@ -56,6 +99,12 @@ public class ValidateInput {
             return null;
     }
 
+    /**
+     * Валидира време във формат "HH:mm".
+     *
+     * @param time низ от типа "час:минути"
+     * @return форматирано време, или празен низ при невалиден вход.
+     */
     public static String isValidTime(String time){
         int hours = -1, minutes = -1;
         String[] parts = time.split(":");
@@ -80,10 +129,22 @@ public class ValidateInput {
         return res;
     }
 
+    /**
+     * Проверява дали днешната дата е след зададена дата.
+     *
+     * @param date обект от тип Date
+     * @return true ако днешната дата е след подадената.
+     */
     public static boolean isTodayAfterDate(Date date){
         return Date.today().isAfter(date);
     }
 
+    /**
+     * Проверява дали низ съдържа само цифри.
+     *
+     * @param str текстов низ
+     * @return true ако съдържа само цифри
+     */
     public static boolean isNumeric(String str) {
         for (char c : str.toCharArray())
             if (!Character.isDigit(c)) return false;

@@ -2,6 +2,9 @@ package model;
 
 import java.util.Objects;
 
+/**
+ * Класът {@code Guest} представя гост на хотела с лични данни.
+ */
 public class Guest {
 
     private String firstName;
@@ -57,6 +60,11 @@ public class Guest {
         return roomNumber;
     }
 
+    /**
+     * Връща текстова информация за госта.
+     *
+     * @return низ с лични данни
+     */
     public String getInfo(){
         StringBuilder builder = new StringBuilder();
         builder.append("First name: "+firstName+"\n");

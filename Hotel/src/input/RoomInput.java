@@ -5,8 +5,16 @@ import model.Hotel;
 import model.Room;
 import model.View;
 
+/**
+ * Клас {@code RoomInput} съдържа методи за търсене на стая, добавяне на стая
+ * и търсене на свободна стая за дадени период и брой легла.
+ */
 public class RoomInput {
 
+    /**
+     * Търси стая по номер, въведен от потребителя.
+     * @return {@link Room} Намерения обект.
+     */
     public static Room enterRoom(){
         int roomNumber;
         do {
@@ -20,7 +28,11 @@ public class RoomInput {
         }while(true);
     }
 
-    public static int enterNewRoomNumber(){
+    /**
+     * Проверява номер на стая и, ако не съществува вече такава стая с такъв номер, го връща.
+     * @return Връща номер на стая, въведен от потребителя, като цяло число.
+     */
+    private static int enterNewRoomNumber(){
         int roomNumber;
         do {
             roomNumber = InputHelper.enterInteger("Enter new room number: ");
@@ -39,6 +51,9 @@ public class RoomInput {
         return roomNumber;
     }
 
+    /**
+     * Добавя нова стая с информация въведена от потребителя.
+     */
     public static void addRoom(){
         int roomNumber = -1, floor = -1, numberOfBeds = -1;
         View view = null;
@@ -73,6 +88,12 @@ public class RoomInput {
         }
     }
 
+    /**
+     * Търси свободна стая за даден период, въведен от потребителя. Ако се търси спешно стая
+     * и не се намери свободна стая, се прави проверка, дали е възможно разместване на гости от най-много две стаи.
+     * Ако е възможно, се прави разместване и се извежда информация за освободената стая.
+     * @param isUrgent Булева стойност, която оказва дали се търси спешно стая, или не.
+     */
     public static void findRoomInput(boolean isUrgent){
         int numberOfBeds;
         Date startDate, endDate;

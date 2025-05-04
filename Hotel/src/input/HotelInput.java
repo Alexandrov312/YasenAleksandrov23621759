@@ -5,8 +5,17 @@ import model.Hotel;
 import model.Reservation;
 import model.Room;
 
+/**
+ * Клас {@code HotelInput} отговаря за обработка на входни данни, свързани с хотела – създаване на хотел,
+ * настаняване, освобождаване на стаи и справки.
+ */
 public class HotelInput {
 
+    /**
+     * Създава нов хотел по въведени от потребителя данни.
+     *
+     * @return {@link Hotel} нов обект от тип Hotel.
+     */
     public static Hotel enterHotel(){
 
         System.out.print("Enter hotel name: ");
@@ -28,6 +37,10 @@ public class HotelInput {
         return new Hotel(name, floors, stars);
     }
 
+    /**
+     * Обработва настаняване на гости – с или без резервация.
+     * Позволява добавяне на гости към дейности при настаняването.
+     */
     public static void checkInInput(){
         String note;
         Room roomResult = null;
@@ -48,7 +61,11 @@ public class HotelInput {
                 System.out.println("Start date: "+Date.today().getDateAsString());
             }
             else {
-                startDate = InputHelper.enterDate("Enter start date ");
+                    startDate = InputHelper.enterDate("Enter start date ");
+                    if(startDate.isAfter(Date.today())){
+                        System.out.println("The start date can not be after today's date!");
+                        return;
+                    }
             }
             endDate = InputHelper.enterEndDateAfterStartDate(startDate, "Enter end date ");
 
@@ -100,11 +117,17 @@ public class HotelInput {
         }
     }
 
+    /**
+     * Освобождава стая, като изпраща гостите от хотела.
+     */
     public static void checkOutInput(){
         Room roomResult = RoomInput.enterRoom();
         Hotel.getInstance().getGuestService().checkOut(roomResult);
     }
 
+    /**
+     * Показва информация за налични стаи към избрана дата или днешна дата.
+     */
     public static void availabilityInput(){
         if(InputHelper.confirm("Would you like to use today's date? ")){
             Hotel.getInstance().getRoomService().availability(null);
@@ -115,6 +138,9 @@ public class HotelInput {
         }
     }
 
+    /**
+     * Генерира отчет за използване на стаите в хотела в определен период.
+     */
     public static void reportInput(){
         Date startDate = null, endDate = null;
 

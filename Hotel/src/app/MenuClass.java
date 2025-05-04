@@ -6,19 +6,40 @@ import model.Hotel;
 
 import java.io.IOException;
 
+/**
+ * Клас {@code MenuClass} управлява главното меню на приложението и всички негови подменюта.
+ * Позволява на потребителя да извършва действия, свързани с хотелското управление,
+ * като настаняване, освобождаване на стаи, търсене на стаи, управление на файлове и хотелска информация.
+ */
 public class MenuClass {
+
     private static boolean mainMenuRunning = true;
+
+    /** Основни опции за менюто */
     private static final String[] mainOptions = {"Check in", "Check out", "Available rooms for a given date", "Report rooms",
             "Find room", "Find room - Urgent", "Set room as unavailable", "File manage menu",
             "Hotel manage menu", "Display activity by room number", "Display all guests signed for activity", "Exit"};
+
+    /** Опции за управление на файлове */
     private static final String[] fileOptions = {"Open", "Save", "Save as", "Help", "Close", "Go back"};
+
+    /** Основни опции за управление на хотела */
     private static final String[] hotelMainOptions = {"Adding Options", "Displaying Options", "Go back"};
+
+    /** Опции за добавяне на данни в системата */
     private static final String[] addingOptions = {"Add guest", "Add room", "Add reservation", "Add activity",
             "Add guest to activity", "Go back"};
+
+    /** Опции за извеждане на данни от системата */
     private static final String[] displayingOptions = {"Show all guests", "Show all rooms", "Show all occupied rooms",
             "Show all free rooms", "Show all reservations", "Show all activities without guests", "Show all activities with guests",
             "Show Hotel info", "Go back"};
 
+    /**
+     * Стартира главното меню на приложението.
+     * Управлява изборите на потребителя и пренасочва към съответните действия.
+     * @throws IOException при грешка при четене или запис на файл.
+     */
     public static void MainMenu() throws IOException {
         while(mainMenuRunning){
             System.out.println("MAIN OPTIONS:");
@@ -69,6 +90,10 @@ public class MenuClass {
         }
     }
 
+    /**
+     * Извежда меню за управление на файлове и изпълнява избраната опция.
+     * @throws IOException при грешка при отваряне или запис.
+     */
     private static void fileMenu() throws IOException {
         boolean fileMenuRunning = true;
         while(fileMenuRunning) {
@@ -101,6 +126,9 @@ public class MenuClass {
         }
     }
 
+    /**
+     * Извежда подменю за управление на хотел (добавяне/показване на данни).
+     */
     private static void hotelMenu() {
         boolean hotelMenuRunning = true;
         while (hotelMenuRunning) {
@@ -123,6 +151,10 @@ public class MenuClass {
             }
         }
     }
+
+    /**
+     * Извежда подменю за добавяне на обекти (гости, стаи, резервации и др.).
+     */
     private static void addingMenu() {
         boolean menuRunning = true;
         while (menuRunning) {
@@ -155,6 +187,9 @@ public class MenuClass {
         }
     }
 
+    /**
+     * Извежда подменю за показване на данни от системата.
+     */
     private static void displayingMenu() {
         boolean menuRunning = true;
         while (menuRunning) {
@@ -196,6 +231,10 @@ public class MenuClass {
         }
     }
 
+    /**
+     * Извежда подаден масив от опции в конзолата.
+     * @param options масив със стрингове, които се показват като опции за избор.
+     */
     private static void displayMenu(String[] options){
         for(int i = 1; i <= options.length; i++){
             System.out.println(i+") "+options[i-1]);

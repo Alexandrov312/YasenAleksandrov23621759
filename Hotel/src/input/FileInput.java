@@ -5,8 +5,17 @@ import fileManage.FileManager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * Клас {@code FileInput} предоставя методи за управление на файлов вход и изход.
+ */
+
 public class FileInput {
 
+    /**
+     * Зарежда файлове с информация за хотел, стаи, гости, резервации и дейности.
+     *
+     * @throws FileNotFoundException ако някой от файловете не бъде намерен.
+     */
     public static void openFile() throws FileNotFoundException {
         String hotelFile, roomsFile, guestsFile, reservationsFile, activitiesFile;
         System.out.print("Enter hotel file path: ");
@@ -22,6 +31,11 @@ public class FileInput {
         FileManager.open(hotelFile, roomsFile, guestsFile, reservationsFile, activitiesFile);
     }
 
+    /**
+     * Записва текущото състояние на хотела в нови файлове, посочени от потребителя.
+     *
+     * @throws IOException ако възникне грешка при запис.
+     */
     public static void saveAs() throws IOException {
         String newHotelFile, newRoomsFile, newGuestsFile, newReservationsFile, newActivitiesFile;
         System.out.print("Enter new hotel file path: ");

@@ -2,6 +2,9 @@ package model;
 import input.HotelInput;
 import service.*;
 
+/**
+ * Класът {@code Hotel} представя хотел и осигурява достъп до всички свързани услуги и данни.
+ */
 public class Hotel{
     private String name;
     private int floors;
@@ -29,6 +32,11 @@ public class Hotel{
         return floors;
     }
 
+    /**
+     * Връща инстанцията на хотела (Singleton).
+     *
+     * @return хотелът
+     */
     public static Hotel getInstance(){
         if(hotel == null){
             Hotel.hotel = HotelInput.enterHotel();
@@ -60,6 +68,11 @@ public class Hotel{
         return hotelService;
     }
 
+    /**
+     * Връща текстова информация за хотела.
+     *
+     * @return низ с данни
+     */
     public String getInfo(){
         StringBuilder builder = new StringBuilder();
         builder.append("Name: "+name+'\n');

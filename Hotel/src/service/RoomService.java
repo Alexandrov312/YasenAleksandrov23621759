@@ -1,5 +1,6 @@
 package service;
 
+import interfaces.RoomServiceInterface;
 import model.Date;
 import model.Guest;
 import model.Hotel;
@@ -10,7 +11,11 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class RoomService {
+/**
+ * Клас {@code RoomService} за управление на хотелски стаи.
+ * Отговаря за търсене, проверка на свободни стаи и преместване на гости.
+ */
+public class RoomService implements RoomServiceInterface {
     private TreeSet<Room> rooms;
 
     public RoomService() {
@@ -21,15 +26,26 @@ public class RoomService {
         return rooms;
     }
 
+    /**
+     * Извежда всички свободни стаи към дадена дата.
+     * @param date Дата за проверка на наличност (ако е null, се използва днешната дата).
+     */
     public void availability(Date date){
         if(date == null) date = Date.today();
         for (Room room : rooms) {
-            if (room.isAvailable() && Hotel.getInstance().getReservationService().isReserved(room, date, date)) {
+            if (!Hotel.getInstance().getReservationService().isReserved(room, date, date)) {
                 System.out.println(room.getInfoWithoutGuests());
             }
         }
     }
 
+    /**
+     * Намира свободна стая, която удовлетворява зададен брой легла и период.
+     * @param numberOfBeds Брой легла.
+     * @param startDate Начална дата.
+     * @param endDate Крайна дата.
+     * @return Подходяща свободна стая или null.
+     */
     public Room findRoom(int numberOfBeds, Date startDate, Date endDate){
         Room result = null;
         for(Room room : rooms){
@@ -43,6 +59,13 @@ public class RoomService {
         return result;
     }
 
+    /**
+     * Търси спешно стая, като при нужда премества гости между други стаи.
+     * @param numberOfBeds Брой легла.
+     * @param startDate Начална дата.
+     * @param endDate Крайна дата.
+     * @return Свободна стая след преместване или null.
+     */
     public Room findRoomUrgent(int numberOfBeds, Date startDate, Date endDate) {
         Room result = findRoom(numberOfBeds, startDate, endDate);
         if (result != null)
@@ -56,7 +79,7 @@ public class RoomService {
                 if (roomA == roomB) continue;
 
                 int totalBeds = roomA.getNumberOfBeds() + roomB.getNumberOfBeds();
-                int totalGuests = roomA.getGuests().size() + roomB.getGuests().size();
+                int totalGuests = roomA.getNumberOfGuests() + roomB.getNumberOfGuests();
 
                 if (totalGuests <= totalBeds - numberOfBeds) {
 
@@ -97,6 +120,9 @@ public class RoomService {
         return null;
     }
 
+    /**
+     * Извежда информация за всички стаи без гости.
+     */
     public void displayAllRooms(){
         for(Room room : rooms){
             System.out.println(room.getInfoWithoutGuests());
@@ -104,6 +130,9 @@ public class RoomService {
         }
     }
 
+    /**
+     * Извежда информация за всички заети стаи (с гости).
+     */
     public void displayAllOccupiedRooms() {
         for (Room room : rooms) {
             if (!room.isAvailable()) {
@@ -113,6 +142,9 @@ public class RoomService {
         }
     }
 
+    /**
+     * Извежда информация за всички свободни стаи (с гости, ако има).
+     */
     public void displayAllFreeRooms() {
         for (Room room : rooms) {
             if (room.isAvailable()) {

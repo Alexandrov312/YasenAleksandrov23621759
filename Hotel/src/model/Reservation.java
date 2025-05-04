@@ -1,5 +1,10 @@
 package model;
 
+import java.util.Objects;
+
+/**
+ * Класът {@code Hotel} представлява резервация за стая в хотела.
+ */
 public class Reservation {
     private Room room;
     private Date startDate;
@@ -11,6 +16,19 @@ public class Reservation {
         this.startDate = startDate;
         this.endDate = endDate;
         this.note = note;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reservation that = (Reservation) o;
+        return Objects.equals(room, that.room) && Objects.equals(startDate, that.startDate) && Objects.equals(endDate, that.endDate) && Objects.equals(note, that.note);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(room, startDate, endDate, note);
     }
 
     public Room getRoom() {
@@ -29,6 +47,9 @@ public class Reservation {
         return note;
     }
 
+    /**
+     * Връща информация за резервацията във формат на текст.
+     */
     public String getInfo(){
         StringBuilder builder = new StringBuilder();
         builder.append("Room number: "+room.getRoomNumber()+'\n');

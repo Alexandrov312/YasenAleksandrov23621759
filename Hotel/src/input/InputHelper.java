@@ -7,10 +7,24 @@ import model.View;
 
 import java.util.Scanner;
 
+/**
+ * Класът {@code InputHelper} предоставя помощни методи за въвеждане и валидиране
+ * на различни типове входни данни от потребителя, включително дати, цели числа,
+ * времеви часове и егн.
+ *
+ * Използва се в целия проект за улесняване на интеракцията с потребителя чрез конзолата.
+ */
+
 public class InputHelper {
     public static Scanner input = new Scanner(System.in);
     private static String temp;
 
+    /**
+     *Извежда подканващ текст към потребителя и връща валидна дата, въведена от него.
+     *
+     * @param prompt    Съобщение към потребителя.
+     * @return {@link Date} създаден от въведената стойност.
+     */
     public static Date enterDate(String prompt){
         do {
             System.out.print(prompt + "(example: 2005/01/25): ");
@@ -21,6 +35,12 @@ public class InputHelper {
         } while (true);
     }
 
+    /**
+     *Валидира и връща 10-цифрено егн, въведено от потребителя.
+     *
+     * @param prompt    Съобщение към потребителя.
+     * @return Валидно егн като низ.
+     */
     public static String enterPersonalNumber(String prompt){
         String personalNumber;
         do {
@@ -36,6 +56,12 @@ public class InputHelper {
         return personalNumber;
     }
 
+    /**
+     * Валидира и връща цяло число, въведено от потребителя.
+     *
+     * @param prompt Съобщение към потребителя.
+     * @return Валидно цяло число.
+     */
     public static int enterInteger(String prompt){
         do {
             System.out.print(prompt);
@@ -48,6 +74,11 @@ public class InputHelper {
         }while(true);
     }
 
+    /**
+     * Позволява на потребителя да избере тип изглед (view) чрез меню.
+     *
+     * @return {@link View} Избраният тип изглед.
+     */
     public static View enterView(){
         do{
             int option = enterInteger("Enter view type:\n1) Side sea view\n2) Direct sea view\nOption: ");
@@ -63,6 +94,12 @@ public class InputHelper {
         }while(true);
     }
 
+    /**
+     * Изисква потвърждение от потребителя с Y/N.
+     *
+     * @param prompt Съобщение към потребителя.
+     * @return {@code true} ако потребителят въведе 'Y' или 'y', иначе {@code false}.
+     */
     public static boolean confirm(String prompt){
         do{
             System.out.print(prompt + "(Y/N): ");
@@ -79,6 +116,12 @@ public class InputHelper {
         }while(true);
     }
 
+    /**
+     * Изисква валиден час във формат hh:mm от потребителя.
+     *
+     * @param prompt    Съобщение към потребителя.
+     * @return Валидна времева стойност като низ.
+     */
     public static String enterTime(String prompt){
         String time = "";
         do{
@@ -93,6 +136,12 @@ public class InputHelper {
         }while(true);
     }
 
+    /**
+     * Търси дейност по даден идентификатор от текущия хотел.
+     *
+     * @param id Идентификатор на дейността.
+     * @return {@link Activity} с посочения идентификатор или {@code null}, ако не е намерена.
+     */
     public static Activity findActivityById(int id){
         for(Activity activity : Hotel.getInstance().getActivityService().getActivities()){
             if(activity.getId() == id){
@@ -102,6 +151,12 @@ public class InputHelper {
         return null;
     }
 
+    /**
+     * Изисква дата, която трябва да бъде в бъдещето спрямо текущата.
+     *
+     * @param prompt    Съобщение към потребителя.
+     * @return {@link Date} Въведена валидна бъдеща дата.
+     */
     public static Date enterFutureDate(String prompt) {
         Date date;
         do {
@@ -113,6 +168,13 @@ public class InputHelper {
         return date;
     }
 
+    /**
+     * Изисква крайна дата, която трябва да е след началната дата.
+     *
+     * @param startDate Начална дата.
+     * @param prompt    Съобщение към потребителя.
+     * @return {@link Date} Валидна крайна дата след началната.
+     */
     public static Date enterEndDateAfterStartDate(Date startDate, String prompt) {
         Date endDate;
         do {

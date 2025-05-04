@@ -6,6 +6,9 @@ import model.Guest;
 import java.util.Comparator;
 import java.util.TreeSet;
 
+/**
+ * Клас {@code ActivityService} за управление на всички дейности(активитети) в хотела.
+ */
 public class ActivityService {
     private TreeSet<Activity> activities;
 
@@ -17,6 +20,9 @@ public class ActivityService {
         return activities;
     }
 
+    /**
+     * Извежда информация за всички дейности.
+     */
     public void displayAllActivitiesWithoutGuests(){
         for(Activity activity : activities){
             System.out.println(activity.getInfo());
@@ -24,6 +30,9 @@ public class ActivityService {
         }
     }
 
+    /**
+     * Извежда информация за всички дейности заедно със записалите се гости.
+     */
     public void displayAllActivitiesWithGuests(){
         for(Activity activity : activities){
             System.out.println(activity.getInfoWithGuests());
@@ -31,6 +40,11 @@ public class ActivityService {
         }
     }
 
+    /**
+     * Извежда всички дейности, в които участват гости от дадена стая.
+     * @param roomNumber номер на стаята
+     * @return текстова информация за дейности и гостите
+     */
     public String displayAllActivitiesByRoomNumber(int roomNumber){
         StringBuilder builder = new StringBuilder();
         for(Activity activity : activities){

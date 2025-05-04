@@ -5,5 +5,5 @@ import model.Room;
 
 public interface GuestServiceInterface {
     void checkIn(Room room, int numberOfGuests, Date startDate, Date endDate, String note);
-    public void checkOut(Room room);
+    void checkOut(Room room);
 }

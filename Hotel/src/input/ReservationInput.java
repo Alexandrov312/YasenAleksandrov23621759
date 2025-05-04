@@ -5,8 +5,15 @@ import model.Hotel;
 import model.Reservation;
 import model.Room;
 
+/**
+ * Класът {@code ReservationInput} предоставя методи за добавяне на нова резервация
+ * и задаване на стая като невалидна за даден период.
+ */
 public class ReservationInput {
 
+    /**
+     * Добавя резервация, по въведени от потребителя данни.
+     */
     public static void addReservation(){
         String note;
         Room roomResult;
@@ -35,6 +42,9 @@ public class ReservationInput {
         }
     }
 
+    /**
+     * Добавя 'резервация', като задава дадена стая като невалидна за определен период по дадена причина.
+     */
     public static void unavailableInput(){
         Room roomResult = null;
         Date startDate = null, endDate = null;

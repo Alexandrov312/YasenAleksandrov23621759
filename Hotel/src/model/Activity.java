@@ -3,6 +3,9 @@ package model;
 import java.util.Comparator;
 import java.util.TreeSet;
 
+/**
+ * Класът {@code Activity} представя дейност(активите), организирана от хотела, с описание, дата, час и списък с участващи гости.
+ */
 public class Activity {
     private int id;
     private String description;
@@ -31,6 +34,11 @@ public class Activity {
         return guests;
     }
 
+    /**
+     * Връща низ с информация за дейностите(активитети).
+     *
+     * @return низ с данни
+     */
     public String getInfo(){
         StringBuilder builder = new StringBuilder();
         builder.append("Id: "+id+"\n");
@@ -40,6 +48,11 @@ public class Activity {
         return builder.toString();
     }
 
+    /**
+     * Връща низ с информация за дейностите(активитети) и всички гости, които са се записали за дадена дейност.
+     *
+     * @return низ с данни
+     */
     public String getInfoWithGuests(){
         StringBuilder builder = new StringBuilder();
         builder.append("Id: "+id+"\n");

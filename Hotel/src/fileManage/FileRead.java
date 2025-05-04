@@ -8,7 +8,48 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Класът {@code FileRead} съдържа методи за четене на данни от файлове в системата.
+ */
 public class FileRead {
+
+    /**
+     * Зарежда информацията за хотела от файл.
+     *
+     * @param path път до файл
+     * @throws FileNotFoundException при липсващ файл
+     */
+    public static void readHotel(String path) throws FileNotFoundException {
+        File file = new File(path);
+
+        Scanner input = new Scanner(file);
+
+        input.findInLine("Name: ");
+        String name = input.nextLine();
+
+        input.findInLine("Floors: ");
+        int floors = input.nextInt();
+        if(floors < 1)
+            throw new ErrorByReading("Number of floors must be at least 1");
+        input.nextLine();
+
+        input.findInLine("Stars: ");
+        int stars = input.nextInt();
+        if(stars < 1 || stars > 5)
+            throw new ErrorByReading("Stars must be between 1 and 5");
+
+        Hotel hotel = new Hotel(name, floors, stars);
+        Hotel.setHotel(hotel);
+
+        input.close();
+    }
+
+    /**
+     * Зарежда стаи от подадения файл.
+     *
+     * @param path път до файл
+     * @throws FileNotFoundException при липсващ файл
+     */
     public static void readRooms(String path) throws FileNotFoundException {
         File file = new File(path);
 
@@ -45,6 +86,12 @@ public class FileRead {
         input.close();
     }
 
+    /**
+     * Зарежда гости от подадения файл и ги добавя към съответната стая.
+     *
+     * @param path път до файл
+     * @throws FileNotFoundException при липсващ файл
+     */
     public static void readGuests(String path) throws FileNotFoundException {
         File file = new File(path);
 
@@ -94,31 +141,12 @@ public class FileRead {
         input.close();
     }
 
-    public static void readHotel(String path) throws FileNotFoundException {
-        File file = new File(path);
-
-        Scanner input = new Scanner(file);
-
-        input.findInLine("Name: ");
-        String name = input.nextLine();
-
-        input.findInLine("Floors: ");
-        int floors = input.nextInt();
-        if(floors < 1)
-            throw new ErrorByReading("Number of floors must be at least 1");
-        input.nextLine();
-
-        input.findInLine("Stars: ");
-        int stars = input.nextInt();
-        if(stars < 1 || stars > 5)
-            throw new ErrorByReading("Stars must be between 1 and 5");
-
-        Hotel hotel = new Hotel(name, floors, stars);
-        Hotel.setHotel(hotel);
-
-        input.close();
-    }
-
+    /**
+     * Зарежда резервации от файл. Добавя ги, ако са актуални, иначе освобождава стаите.
+     *
+     * @param path път до файл
+     * @throws FileNotFoundException при липсващ файл
+     */
     public static void readReservations(String path) throws FileNotFoundException {
         File file = new File(path);
 
@@ -166,6 +194,12 @@ public class FileRead {
         input.close();
     }
 
+    /**
+     * Зарежда активности и свързаните с тях гости от файл.
+     *
+     * @param path път до файл
+     * @throws FileNotFoundException при липсващ файл
+     */
     public static void readActivities(String path) throws FileNotFoundException {
         File file = new File(path);
 
