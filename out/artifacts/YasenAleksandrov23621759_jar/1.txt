@@ -1,0 +1,3 @@
+Name: Coral
+Floors: 5
+Stars: 5

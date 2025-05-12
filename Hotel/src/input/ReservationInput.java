@@ -14,7 +14,7 @@ public class ReservationInput {
     /**
      * Добавя резервация, по въведени от потребителя данни.
      */
-    public static void addReservation(){
+    public  void addReservation(){
         String note;
         Room roomResult;
         Date startDate = null, endDate = null;
@@ -45,7 +45,7 @@ public class ReservationInput {
     /**
      * Добавя 'резервация', като задава дадена стая като невалидна за определен период по дадена причина.
      */
-    public static void unavailableInput(){
+    public  void unavailableInput(){
         Room roomResult = null;
         Date startDate = null, endDate = null;
         String note;

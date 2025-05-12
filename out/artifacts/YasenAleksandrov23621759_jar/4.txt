@@ -1,0 +1,15 @@
+Room number: 301
+Start date: 2025/05/08
+End date: 2025/05/30
+Note: Kristiqnov
+-----------------------------
+Room number: 302
+Start date: 2025/05/08
+End date: 2025/05/31
+Note: Boqdjiev
+-----------------------------
+Room number: 303
+Start date: 2025/05/08
+End date: 2025/05/31
+Note: Ivanov
+-----------------------------

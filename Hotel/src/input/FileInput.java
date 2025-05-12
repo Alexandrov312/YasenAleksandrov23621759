@@ -11,12 +11,14 @@ import java.io.IOException;
 
 public class FileInput {
 
+    FileManager fileManager = new FileManager();
+
     /**
      * Зарежда файлове с информация за хотел, стаи, гости, резервации и дейности.
      *
      * @throws FileNotFoundException ако някой от файловете не бъде намерен.
      */
-    public static void openFile() throws FileNotFoundException {
+    public  void openFile() throws FileNotFoundException {
         String hotelFile, roomsFile, guestsFile, reservationsFile, activitiesFile;
         System.out.print("Enter hotel file path: ");
         hotelFile = InputHelper.input.nextLine();
@@ -28,7 +30,7 @@ public class FileInput {
         reservationsFile = InputHelper.input.nextLine();
         System.out.print("Enter activities file path: ");
         activitiesFile = InputHelper.input.nextLine();
-        FileManager.open(hotelFile, roomsFile, guestsFile, reservationsFile, activitiesFile);
+        fileManager.open(hotelFile, roomsFile, guestsFile, reservationsFile, activitiesFile);
     }
 
     /**
@@ -36,7 +38,7 @@ public class FileInput {
      *
      * @throws IOException ако възникне грешка при запис.
      */
-    public static void saveAs() throws IOException {
+    public  void saveAs() throws IOException {
         String newHotelFile, newRoomsFile, newGuestsFile, newReservationsFile, newActivitiesFile;
         System.out.print("Enter new hotel file path: ");
         newHotelFile = InputHelper.input.nextLine();
@@ -48,6 +50,6 @@ public class FileInput {
         newReservationsFile = InputHelper.input.nextLine();
         System.out.print("Enter new activities file path: ");
         newActivitiesFile = InputHelper.input.nextLine();
-        FileManager.saveAs(newHotelFile, newRoomsFile, newGuestsFile, newReservationsFile, newActivitiesFile);
+        fileManager.saveAs(newHotelFile, newRoomsFile, newGuestsFile, newReservationsFile, newActivitiesFile);
     }
 }

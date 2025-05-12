@@ -13,7 +13,7 @@ public class ActivityInput {
     /**
      * Добавя нова дейност в системата, като валидира въведените данни.
      */
-    public static void addActivity(){
+    public  void addActivity(){
         int id;
         String description;
         Date date = null;
@@ -47,7 +47,7 @@ public class ActivityInput {
     /**
      * Извежда всички дейности, в които участват гости от конкретна стая.
      */
-    public static void activityByRoomNumberInput(){
+    public  void activityByRoomNumberInput(){
         if(Hotel.getInstance().getActivityService().getActivities().isEmpty()){
             System.out.println("There are no activities!");
             return;
@@ -66,7 +66,7 @@ public class ActivityInput {
     /**
      * Извежда информация за конкретна дейност по въведен идентификатор.
      */
-    public static void activityByIdInput(){
+    public  void activityByIdInput(){
         if(Hotel.getInstance().getActivityService().getActivities().isEmpty()){
             System.out.println("There are no activities!");
             return;

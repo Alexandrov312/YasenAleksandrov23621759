@@ -42,7 +42,7 @@ public class GuestInput {
     /**
      * Добавя гост към стая, ако има направена резервация.
      */
-    public static void addGuest(){
+    public  void addGuest(){
         Room roomResult;
         do {
             roomResult = RoomInput.enterRoom();
@@ -74,7 +74,7 @@ public class GuestInput {
      *
      * @param guests списък с гости, които могат да бъдат добавени към дейността.
      */
-    public static void addGuestToActivity(TreeSet<Guest> guests){
+    public void addGuestToActivity(TreeSet<Guest> guests){
         Guest guest = null;
         Activity activity = null;
         String personalNumber;
@@ -148,7 +148,7 @@ public class GuestInput {
      *
      * @param guests списък с гости, които ще се записват в дейности.
      */
-    public static void addGuestToActivityByCheckIn(TreeSet<Guest> guests){
+    public void addGuestToActivityByCheckIn(TreeSet<Guest> guests){
         if(Hotel.getInstance().getActivityService().getActivities().isEmpty()){
             System.out.println("There are no activities!");
             return;

@@ -1,3 +1,0 @@
-Name: Mazna
-Floors: 9
-Stars: 5

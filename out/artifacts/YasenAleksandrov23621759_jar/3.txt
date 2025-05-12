@@ -1,0 +1,28 @@
+First name: Dimitar
+Last name: Kristiqnov
+Birth date: 2000/01/07
+Personal number: 0090757442
+Country: Bulgaria
+Room number: 301
+-----------------------------
+First name: Simona
+Last name: Boqdjieva
+Birth date: 1978/12/21
+Personal number: 7876565421
+Country: Bulgaria
+Room number: 302
+-----------------------------
+First name: Niq
+Last name: Boqdjieva
+Birth date: 1980/10/29
+Personal number: 8065453012
+Country: Bulgaira
+Room number: 302
+-----------------------------
+First name: Orlin
+Last name: Ivanov
+Birth date: 1991/09/30
+Personal number: 9154430671
+Country: Bulgaria
+Room number: 303
+-----------------------------

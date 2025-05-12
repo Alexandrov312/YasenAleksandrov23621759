@@ -16,7 +16,7 @@ public class HotelInput {
      *
      * @return {@link Hotel} нов обект от тип Hotel.
      */
-    public static Hotel enterHotel(){
+    public  Hotel enterHotel(){
 
         System.out.print("Enter hotel name: ");
         String name = InputHelper.input.nextLine();
@@ -41,7 +41,7 @@ public class HotelInput {
      * Обработва настаняване на гости – с или без резервация.
      * Позволява добавяне на гости към дейности при настаняването.
      */
-    public static void checkInInput(){
+    public  void checkInInput(){
         String note;
         Room roomResult = null;
         Date startDate = null, endDate = null;
@@ -113,14 +113,15 @@ public class HotelInput {
         }
 
         if(InputHelper.confirm("Would you like to add guests to activity?")){
-            GuestInput.addGuestToActivityByCheckIn(roomResult.getGuests());
+            GuestInput guestInput = new GuestInput();
+            guestInput.addGuestToActivityByCheckIn(roomResult.getGuests());
         }
     }
 
     /**
      * Освобождава стая, като изпраща гостите от хотела.
      */
-    public static void checkOutInput(){
+    public  void checkOutInput(){
         Room roomResult = RoomInput.enterRoom();
         Hotel.getInstance().getGuestService().checkOut(roomResult);
     }
@@ -128,7 +129,7 @@ public class HotelInput {
     /**
      * Показва информация за налични стаи към избрана дата или днешна дата.
      */
-    public static void availabilityInput(){
+    public  void availabilityInput(){
         if(InputHelper.confirm("Would you like to use today's date? ")){
             Hotel.getInstance().getRoomService().availability(null);
         }
@@ -141,7 +142,7 @@ public class HotelInput {
     /**
      * Генерира отчет за използване на стаите в хотела в определен период.
      */
-    public static void reportInput(){
+    public  void reportInput(){
         Date startDate = null, endDate = null;
 
         startDate = InputHelper.enterDate("Enter start date ");

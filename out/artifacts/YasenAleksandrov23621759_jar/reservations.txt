@@ -1,0 +1,40 @@
+Room number: 302
+Start date: 2025/05/04
+End date: 2025/05/30
+Note: Kenovi
+-----------------------------
+Room number: 404
+Start date: 2025/04/25
+End date: 2025/05/10
+Note: Minchevi
+-----------------------------
+Room number: 504
+Start date: 2025/04/28
+End date: 2025/05/12
+Note: Ilievi
+-----------------------------
+Room number: 603
+Start date: 2025/04/28
+End date: 2025/05/28
+Note: Ilievi
+-----------------------------
+Room number: 604
+Start date: 2025/05/04
+End date: 2025/06/05
+Note: Hristovi
+-----------------------------
+Room number: 703
+Start date: 2025/05/04
+End date: 2025/05/29
+Note: Aleksiev
+-----------------------------
+Room number: 704
+Start date: 2025/04/28
+End date: 2025/05/30
+Note: Cvetanovi
+-----------------------------
+Room number: 801
+Start date: 2025/05/04
+End date: 2025/06/13
+Note: Cvetanov
+-----------------------------

@@ -32,7 +32,7 @@ public class RoomInput {
      * Проверява номер на стая и, ако не съществува вече такава стая с такъв номер, го връща.
      * @return Връща номер на стая, въведен от потребителя, като цяло число.
      */
-    private static int enterNewRoomNumber(){
+    private  int enterNewRoomNumber(){
         int roomNumber;
         do {
             roomNumber = InputHelper.enterInteger("Enter new room number: ");
@@ -54,7 +54,7 @@ public class RoomInput {
     /**
      * Добавя нова стая с информация въведена от потребителя.
      */
-    public static void addRoom(){
+    public  void addRoom(){
         int roomNumber = -1, floor = -1, numberOfBeds = -1;
         View view = null;
 
@@ -94,7 +94,7 @@ public class RoomInput {
      * Ако е възможно, се прави разместване и се извежда информация за освободената стая.
      * @param isUrgent Булева стойност, която оказва дали се търси спешно стая, или не.
      */
-    public static void findRoomInput(boolean isUrgent){
+    public  void findRoomInput(boolean isUrgent){
         int numberOfBeds;
         Date startDate, endDate;
         do{

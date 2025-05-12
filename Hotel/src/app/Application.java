@@ -1,5 +1,7 @@
 package app;
 
+import menu.MainMenu;
+
 import java.io.IOException;
 
 /**
@@ -9,6 +11,6 @@ import java.io.IOException;
  */
 public class Application {
     public static void main(String[] args) throws IOException {
-        MenuClass.MainMenu();
+        MainMenu menu = new MainMenu();
     }
 }

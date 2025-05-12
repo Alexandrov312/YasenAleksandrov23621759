@@ -26,7 +26,7 @@ public class FileManager {
      * @param activitiesFile    път до файл с данни за активности
      * @throws FileNotFoundException ако някой от файловете не бъде намерен
      */
-    public static void open(String hotelFile, String roomsFile, String guestsFile,
+    public void open(String hotelFile, String roomsFile, String guestsFile,
                             String reservationsFile, String activitiesFile) throws FileNotFoundException {
         hotelFilePath = hotelFile;
         roomsFilePath = roomsFile;
@@ -49,7 +49,7 @@ public class FileManager {
      *
      * @throws IOException при грешка при запис
      */
-    public static void save() throws IOException {
+    public void save() throws IOException {
         if(!isOpened){
             System.out.println("No opened files!");
             return;
@@ -72,7 +72,7 @@ public class FileManager {
      * @param newActivitiesFile нов път до файл с данни за активности
      * @throws IOException при грешка при запис
      */
-    public static void saveAs(String newHotelFile, String newRoomsFile, String newGuestsFile,
+    public void saveAs(String newHotelFile, String newRoomsFile, String newGuestsFile,
                               String newReservationsFile, String newActivitiesFile) throws IOException {
         hotelFilePath = newHotelFile;
         roomsFilePath = newRoomsFile;
@@ -94,7 +94,7 @@ public class FileManager {
     /**
      * Затваря текущо заредения хотел и изчиства данните.
      */
-    public static void close(){
+    public void close(){
         Hotel.setHotel(null);
         isOpened = false;
         System.out.println("Hotel closed!");
@@ -103,7 +103,7 @@ public class FileManager {
     /**
      * Извежда помощна информация за командите, налични за потребителя.
      */
-    public static void printHelp() {
+    public void printHelp() {
         System.out.println("Available commands:");
         System.out.println("open - Open hotel, rooms, guests and reservations files");
         System.out.println("save - Save current hotel data to files");

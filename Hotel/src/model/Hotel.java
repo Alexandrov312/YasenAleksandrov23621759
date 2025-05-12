@@ -39,7 +39,8 @@ public class Hotel{
      */
     public static Hotel getInstance(){
         if(hotel == null){
-            Hotel.hotel = HotelInput.enterHotel();
+            HotelInput hotelInput = new HotelInput();
+            Hotel.hotel = hotelInput.enterHotel();
         }
         return hotel;
     }

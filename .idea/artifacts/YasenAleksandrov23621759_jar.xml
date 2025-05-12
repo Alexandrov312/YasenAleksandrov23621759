@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="YasenAleksandrov23621759:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/YasenAleksandrov23621759_jar</output-path>
+    <root id="archive" name="YasenAleksandrov23621759.jar">
+      <element id="module-output" name="YasenAleksandrov23621759" />
+    </root>
+  </artifact>
+</component>
